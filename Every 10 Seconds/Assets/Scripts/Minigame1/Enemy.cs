@@ -9,8 +9,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource explosionSound;
     bool movement = true;
     float x;
+    Animator animator;
     void Start()
     {
+        animator = GetComponent<Animator>();
         Invoke("FirstStop", stopTime);
         Invoke("Continue", continueTime);
         InvokeRepeating("RandomDirection", 0.2f, 0.2f);
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
     }
     public void Death()
     {
+        animator.SetBool("dead", true);
         Minigame1.Instance.score += 1;
         explosionSound.Play();
         Destroy(Instantiate(explosion, transform.position, Quaternion.identity),1);
