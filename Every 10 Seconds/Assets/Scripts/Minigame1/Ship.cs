@@ -13,12 +13,20 @@ public class Ship : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        InvokeRepeating("LaserShoot", laserTime, laserTime);
     }
     void Update()
     {
         if (dead) return;
         Control();
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke("LaserShoot");
+    }
+    private void OnEnable()
+    {
+        InvokeRepeating("LaserShoot", laserTime, laserTime);
     }
 
     void Control()

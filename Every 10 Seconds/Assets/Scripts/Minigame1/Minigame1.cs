@@ -6,15 +6,15 @@ public class Minigame1 : MonoBehaviour
 {
     private static Minigame1 _instance;
     public static Minigame1 Instance => _instance;
-
+    [SerializeField] private float waveStartTime,nextMinigameOpenTime;
     [System.NonSerialized] public int score;
-    [SerializeField] private Text scoreText,waveText,FirstEndText;
+    [SerializeField] private Text scoreText, waveText, FirstEndText;
     [SerializeField] private Button restartButton;
-    [SerializeField] private float waveStartTime;
-    [SerializeField] private GameObject allObjects, miniGame2;
+    [SerializeField] private GameObject allObjects;
     [SerializeField] private GameObject[] waves;
     float waveTime;
     int waveIndex;
+    bool stopped;
 
     private void Awake()
     {
@@ -25,7 +25,20 @@ public class Minigame1 : MonoBehaviour
     {
         StartCoroutine(SetWave());
         StartCoroutine(ShowWave());
-        Invoke("Minigame2Open", 35);
+        Invoke("Minigame2Open",nextMinigameOpenTime);
+    }
+    private void OnDisable()
+    {
+        stopped = true;
+    }
+    private void OnEnable()
+    {
+        if (!stopped) return;
+        waveTime = 10;
+        StartCoroutine(SetWave());
+        StartCoroutine(ShowWave());
+        Invoke("Minigame2Open", nextMinigameOpenTime);
+        stopped = false;
     }
 
     private void Update()
@@ -54,9 +67,9 @@ public class Minigame1 : MonoBehaviour
 
     IEnumerator ShowWave()
     {
+        waveText.text = "Next wave: " + waveTime.ToString();
         yield return new WaitForSeconds(1);
         if (waveTime > 0) waveTime--;
-        waveText.text = "Next wave: " + waveTime.ToString();
         StartCoroutine(ShowWave());
     }
     public void End()
@@ -77,7 +90,8 @@ public class Minigame1 : MonoBehaviour
 
     void Minigame2Open()
     {
-        miniGame2.SetActive(true);
-        Destroy(gameObject);
+        GameObject nextMinigame = GameManager.Instance.GetNextMinigameObject();
+        nextMinigame.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
