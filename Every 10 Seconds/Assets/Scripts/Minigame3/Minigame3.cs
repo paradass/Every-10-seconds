@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigame2 : MonoBehaviour
+public class Minigame3 : MonoBehaviour
 {
-    private static Minigame2 _instance;
-    public static Minigame2 Instance => _instance;
+    private static Minigame3 _instance;
+    public static Minigame3 Instance => _instance;
 
     [SerializeField] private GameObject nextMinigameObject;
     bool control;
@@ -16,7 +16,7 @@ public class Minigame2 : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.minigame = 1;
+        GameManager.Instance.minigame = 2;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
     }
@@ -37,7 +37,7 @@ public class Minigame2 : MonoBehaviour
     }
     void BackToGame()
     {
-        GameManager.Instance.minigame = 0;
+        GameManager.Instance.minigame = 1;
         GameManager.Instance.minigames[0].SetActive(true);
         gameObject.SetActive(false);
     }
