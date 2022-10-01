@@ -11,8 +11,8 @@ public class Minigame1 : MonoBehaviour
     [SerializeField] private Text scoreText,waveText,FirstEndText;
     [SerializeField] private Button restartButton;
     [SerializeField] private float waveStartTime;
+    [SerializeField] private GameObject allObjects, miniGame2;
     [SerializeField] private GameObject[] waves;
-    [SerializeField] private GameObject allObjects;
     float waveTime;
     int waveIndex;
 
@@ -25,6 +25,7 @@ public class Minigame1 : MonoBehaviour
     {
         StartCoroutine(SetWave());
         StartCoroutine(ShowWave());
+        Invoke("Minigame2Open", 35);
     }
 
     private void Update()
@@ -62,7 +63,7 @@ public class Minigame1 : MonoBehaviour
     {
         StartCoroutine(FirstEnd());
     }
-    public IEnumerator FirstEnd()
+    IEnumerator FirstEnd()
     {
         yield return new WaitForSeconds(0.5f);
         allObjects.SetActive(false);
@@ -72,5 +73,11 @@ public class Minigame1 : MonoBehaviour
         yield return new WaitForSeconds(3f);
         FirstEndText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(true);
+    }
+
+    void Minigame2Open()
+    {
+        miniGame2.SetActive(true);
+        Destroy(gameObject);
     }
 }
