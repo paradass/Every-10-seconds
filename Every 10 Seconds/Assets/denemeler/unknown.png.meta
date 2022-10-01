@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49aacd0a4f0d3f94d8af0a5cc6163ae2
+guid: 6a11173f38b079b4c85998743ca23e9e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 13, y: 0, z: 110, w: 14}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,7 +113,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -125,7 +125,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -141,10 +141,10 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape:
-    - - {x: -303, y: -145}
-      - {x: -303, y: -139}
-      - {x: 209, y: -139}
-      - {x: 209, y: -145}
+    - - {x: -306, y: -145}
+      - {x: -305, y: -139}
+      - {x: 208, y: -139}
+      - {x: 207, y: -146}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665

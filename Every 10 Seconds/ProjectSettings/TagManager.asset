@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - isikcont
   - Water
   - UI
-  - 
+  - noncentx
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: My Sprites
+    uniqueID: 3856160099
+    locked: 0
+  - name: My Lighting
+    uniqueID: 3756959833
     locked: 0
