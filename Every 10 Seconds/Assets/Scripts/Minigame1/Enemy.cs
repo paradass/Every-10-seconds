@@ -33,8 +33,8 @@ public class Enemy : MonoBehaviour
     void RandomDirection()
     {
         int random = Random.Range(0, 3);
-        if (random == 0 && transform.position.x < 1.6f) x = 1;
-        else if (random == 1 && transform.position.x > -2.6f) x = -1;
+        if (random == 0) x = 1;
+        else if (random == 1) x = -1;
         else x = 0;
     }
     void Movement()

@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1749891675}
-  waveStartTime: 8
+  waveStartTime: 5
   waves:
   - {fileID: 154305448}
   - {fileID: 767309330}
