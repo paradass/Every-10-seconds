@@ -124,6 +124,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &100955528
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +454,8 @@ MonoBehaviour:
     transform: {fileID: 495885879}
 =======
 >>>>>>> parent of 5f63349 (myLight)
+=======
+>>>>>>> parent of 5f63349 (myLight)
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +540,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!114 &519420033
 MonoBehaviour:
@@ -1591,5 +1595,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 5f63349 (myLight)
 =======
 >>>>>>> parent of 5f63349 (myLight)
