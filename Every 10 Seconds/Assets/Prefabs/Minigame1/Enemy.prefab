@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   stopTime: 1
-  continueTime: 3
+  continueTime: 2
   explosion: {fileID: 5678462694181585098, guid: 5fae22b30b94e9a41916f48169cb5725, type: 3}
   explosionSound: {fileID: 4490426403990786917}
 --- !u!95 &4490426402593005617
