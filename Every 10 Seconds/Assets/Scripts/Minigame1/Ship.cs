@@ -43,6 +43,7 @@ public class Ship : MonoBehaviour
             animator.SetBool("dead", true);
             deadSound.Play();
             Destroy(gameObject, 0.4f);
+            Minigame1.Instance.End();
         }
     }
 }
