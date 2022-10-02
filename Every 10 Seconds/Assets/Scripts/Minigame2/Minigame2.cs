@@ -7,7 +7,6 @@ public class Minigame2 : MonoBehaviour
     private static Minigame2 _instance;
     public static Minigame2 Instance => _instance;
 
-    [SerializeField] private GameObject nextMinigameObject;
     bool control;
     private void Awake()
     {
@@ -16,6 +15,7 @@ public class Minigame2 : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), transform.position.z);
         GameManager.Instance.minigame = 1;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
