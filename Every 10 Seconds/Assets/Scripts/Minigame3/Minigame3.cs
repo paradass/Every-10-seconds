@@ -35,24 +35,31 @@ public class Minigame3 : MonoBehaviour
     {
         control = true;
     }
-    void BackToGame()
-    {
-        GameManager.Instance.minigame = 1;
-        GameManager.Instance.minigames[0].SetActive(true);
-        gameObject.SetActive(false);
-    }
 
     void Control()
     {
         if (!control) return;
         if (Input.GetMouseButtonDown(0))
         {
-            nextMinigameObject.SetActive(true);
-            gameObject.SetActive(false);
+            control = false;
+            Invoke("NextPopUp", 0.2f);
         }
         if (Input.GetMouseButtonDown(1))
         {
-            BackToGame();
+            control = false;
+            Invoke("NextPopUp", 0.2f);
         }
+    }
+
+    void NextPopUp()
+    {
+        nextMinigameObject.SetActive(true);
+        gameObject.SetActive(false);
+    }
+    void BackToGame()
+    {
+        GameManager.Instance.minigame = 1;
+        GameManager.Instance.minigames[0].SetActive(true);
+        gameObject.SetActive(false);
     }
 }

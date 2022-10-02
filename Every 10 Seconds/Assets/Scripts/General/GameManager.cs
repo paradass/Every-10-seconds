@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int minigame = 0;
     [SerializeField] private int thisScene;
     [SerializeField] private AudioSource leftClick, rightClick;
+    [SerializeField] GameObject fakeBackgorund, fakeShip, fakeEnemy;
     public GameObject[] minigames;
 
     private void Awake()
@@ -37,5 +38,26 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(thisScene);
+    }
+    public void CreateFakeObjects()
+    {
+        fakeBackgorund.SetActive(true);
+        fakeShip.SetActive(true);
+        fakeShip.transform.position = GameObject.Find("Ship").transform.position;
+        var enemys = GameObject.FindObjectsOfType<Enemy>();
+        foreach(var enemy in enemys)
+        {
+            Instantiate(fakeEnemy, enemy.transform.position, Quaternion.identity);
+        }
+    }
+    public void DeleteFakeObjects()
+    {
+        fakeBackgorund.SetActive(false);
+        fakeShip.SetActive(false);
+        GameObject[] fakes = GameObject.FindGameObjectsWithTag("Fake");
+        foreach(GameObject fake in fakes)
+        {
+            fake.SetActive(false);
+        }
     }
 }

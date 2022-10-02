@@ -10,7 +10,7 @@ public class Minigame1 : MonoBehaviour
     [System.NonSerialized] public int score;
     [SerializeField] private Text scoreText, waveText, FirstEndText;
     [SerializeField] private Button restartButton;
-    [SerializeField] private GameObject allObjects;
+    [SerializeField] private GameObject allObjects,waveParentObject;
     [SerializeField] private GameObject[] waves;
     float waveTime;
     int waveIndex;
@@ -23,9 +23,14 @@ public class Minigame1 : MonoBehaviour
 
     private void Start()
     {
+        waves = new GameObject[waveParentObject.transform.childCount];
+        for(int i = 0;i < waveParentObject.transform.childCount; i++)
+        {
+            waves[i] = waveParentObject.transform.GetChild(i).gameObject;
+        }
         StartCoroutine(SetWave());
         StartCoroutine(ShowWave());
-        Invoke("Minigame2Open",nextMinigameOpenTime);
+        Invoke("NextMinigameOpen", nextMinigameOpenTime);
     }
     private void OnDisable()
     {
@@ -37,8 +42,9 @@ public class Minigame1 : MonoBehaviour
         waveTime = 10;
         StartCoroutine(SetWave());
         StartCoroutine(ShowWave());
-        Invoke("Minigame2Open", nextMinigameOpenTime);
+        Invoke("NextMinigameOpen", nextMinigameOpenTime);
         stopped = false;
+        GameManager.Instance.DeleteFakeObjects();
     }
 
     private void Update()
@@ -88,8 +94,9 @@ public class Minigame1 : MonoBehaviour
         restartButton.gameObject.SetActive(true);
     }
 
-    void Minigame2Open()
+    void NextMinigameOpen()
     {
+        GameManager.Instance.CreateFakeObjects();
         GameObject nextMinigame = GameManager.Instance.GetNextMinigameObject();
         nextMinigame.SetActive(true);
         gameObject.SetActive(false);
