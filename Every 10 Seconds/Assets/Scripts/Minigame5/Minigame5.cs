@@ -17,7 +17,7 @@ public class Minigame5 : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-0.7f, 0.7f), 0, transform.position.z);
+        transform.GetChild(0).gameObject.transform.position = new Vector3(Random.Range(-0.7f, 0.7f), 0, transform.position.z);
         GameManager.Instance.minigame = 4;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
@@ -67,7 +67,7 @@ public class Minigame5 : MonoBehaviour
     void ExitPopUp()
     {
         GameObject spawnedPopup = Instantiate(popUp, new Vector3(Random.Range(-1.5f, 0.7f), 0f, -2), Quaternion.identity);
-        spawnedPopup.transform.parent = transform.GetChild(2);
+        spawnedPopup.transform.parent = transform.GetChild(1);
         spawnedPopup.transform.position -= new Vector3(0, 0, 0.1f * counter);
         counter++;
         if (counter < 10) return;
