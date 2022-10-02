@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - mouse
+  - wall
+  - wallaralik
   layers:
   - Default
   - TransparentFX
@@ -41,9 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: My Lighting
+    uniqueID: 3756959833
+    locked: 0
+  - name: background
+    uniqueID: 1769782639
+    locked: 0
   - name: My Sprites
     uniqueID: 3856160099
     locked: 0
-  - name: My Lighting
-    uniqueID: 3756959833
+  - name: yazi
+    uniqueID: 319508993
     locked: 0
