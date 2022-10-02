@@ -42,7 +42,8 @@ public class Minigame1 : MonoBehaviour
         waveTime = 10;
         StartCoroutine(SetWave());
         StartCoroutine(ShowWave());
-        Invoke("NextMinigameOpen", nextMinigameOpenTime);
+        if (GameManager.Instance.exitPopup) StartCoroutine(SecondEnd());
+        else Invoke("NextMinigameOpen", nextMinigameOpenTime);
         stopped = false;
         GameManager.Instance.DeleteFakeObjects();
     }
@@ -89,6 +90,19 @@ public class Minigame1 : MonoBehaviour
         waveText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(false);
         FirstEndText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        FirstEndText.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(true);
+    }
+
+    IEnumerator SecondEnd()
+    {
+        yield return new WaitForSeconds(10);
+        allObjects.SetActive(false);
+        waveText.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(false);
+        FirstEndText.gameObject.SetActive(true);
+        FirstEndText.text = "You Win!";
         yield return new WaitForSeconds(3f);
         FirstEndText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(true);

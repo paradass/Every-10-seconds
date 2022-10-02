@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
     public int minigame = 0;
+    [System.NonSerialized] public bool exitPopup;
     [SerializeField] private int thisScene;
     [SerializeField] private AudioSource leftClick, rightClick;
     [SerializeField] GameObject fakeBackgorund, fakeShip, fakeEnemy;

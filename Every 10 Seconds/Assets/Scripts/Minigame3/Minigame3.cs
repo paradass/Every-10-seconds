@@ -42,7 +42,7 @@ public class Minigame3 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             control = false;
-            Invoke("NextPopUp", 0.2f);
+            Invoke("ExitPopUp", 0.2f);
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -59,6 +59,13 @@ public class Minigame3 : MonoBehaviour
     void BackToGame()
     {
         GameManager.Instance.minigame = 1;
+        GameManager.Instance.minigames[0].SetActive(true);
+        gameObject.SetActive(false);
+    }
+    void ExitPopUp()
+    {
+        GameManager.Instance.exitPopup = true;
+        GameManager.Instance.minigame = 0;
         GameManager.Instance.minigames[0].SetActive(true);
         gameObject.SetActive(false);
     }

@@ -42,12 +42,12 @@ public class Minigame2 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             control = false;
-            Invoke("NextPopUp", 0.2f);
+            NextPopUp();
         }
         if (Input.GetMouseButtonDown(1))
         {
             control = false;
-            Invoke("BackToGame", 0.2f);
+            Invoke("ExitPopUp", 0.2f);
         }
     }
 
@@ -58,6 +58,14 @@ public class Minigame2 : MonoBehaviour
     }
     void BackToGame()
     {
+        GameManager.Instance.minigame = 0;
+        GameManager.Instance.minigames[0].SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    void ExitPopUp()
+    {
+        GameManager.Instance.exitPopup = true;
         GameManager.Instance.minigame = 0;
         GameManager.Instance.minigames[0].SetActive(true);
         gameObject.SetActive(false);
