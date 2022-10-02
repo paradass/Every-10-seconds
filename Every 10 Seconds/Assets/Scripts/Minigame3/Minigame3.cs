@@ -7,7 +7,7 @@ public class Minigame3 : MonoBehaviour
     private static Minigame3 _instance;
     public static Minigame3 Instance => _instance;
 
-    [SerializeField] private GameObject nextMinigameObject;
+    [SerializeField] private GameObject nextMinigameObject,leftButton,rightButton;
     bool control;
     private void Awake()
     {
@@ -42,18 +42,23 @@ public class Minigame3 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             control = false;
-            Invoke("ExitPopUp", 0.2f);
+            leftButton.GetComponent<Animator>().SetBool("isChange", true);
+            rightButton.GetComponent<Animator>().SetBool("isChange", true);
+            Invoke("NextPopUp", 0.2f);
         }
         if (Input.GetMouseButtonDown(1))
         {
             control = false;
-            Invoke("NextPopUp", 0.2f);
+            NextPopUp();
+
         }
     }
 
     void NextPopUp()
     {
-        nextMinigameObject.SetActive(true);
+        GameManager.Instance.minigame = 2;
+        GameManager.Instance.minigames[0].SetActive(true);
+        Minigame1.Instance.nextMinigameOpenTime = 2;
         gameObject.SetActive(false);
     }
     void BackToGame()

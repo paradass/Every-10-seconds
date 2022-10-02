@@ -6,7 +6,8 @@ public class Minigame1 : MonoBehaviour
 {
     private static Minigame1 _instance;
     public static Minigame1 Instance => _instance;
-    [SerializeField] private float waveStartTime,nextMinigameOpenTime;
+    [SerializeField] private float waveStartTime;
+    public float nextMinigameOpenTime;
     [System.NonSerialized] public int score;
     [SerializeField] private Text scoreText, waveText, FirstEndText;
     [SerializeField] private Button restartButton;
@@ -97,7 +98,7 @@ public class Minigame1 : MonoBehaviour
 
     IEnumerator SecondEnd()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(35);
         allObjects.SetActive(false);
         waveText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(false);

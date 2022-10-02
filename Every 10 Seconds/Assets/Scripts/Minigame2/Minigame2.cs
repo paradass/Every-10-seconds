@@ -42,18 +42,20 @@ public class Minigame2 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             control = false;
-            NextPopUp();
+            Invoke("ExitPopUp", 0.2f);
         }
         if (Input.GetMouseButtonDown(1))
         {
             control = false;
-            Invoke("ExitPopUp", 0.2f);
+            NextPopUp();
         }
     }
 
     void NextPopUp()
     {
-        nextMinigameObject.SetActive(true);
+        GameManager.Instance.minigame = 1;
+        Minigame1.Instance.nextMinigameOpenTime = 2;
+        GameManager.Instance.minigames[0].SetActive(true);
         gameObject.SetActive(false);
     }
     void BackToGame()
