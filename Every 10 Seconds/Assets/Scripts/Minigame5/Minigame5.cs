@@ -7,7 +7,7 @@ public class Minigame5 : MonoBehaviour
     private static Minigame5 _instance;
     public static Minigame5 Instance => _instance;
 
-    [SerializeField] private GameObject nextMinigame,popUp;
+    [SerializeField] private GameObject fakeBackground,nextMinigame,popUp;
     bool control;
     int counter;
     private void Awake()
@@ -17,7 +17,7 @@ public class Minigame5 : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-0.7f, 0.7f), transform.position.z);
+        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-0.7f, 0.7f), 0, transform.position.z);
         GameManager.Instance.minigame = 4;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
@@ -44,30 +44,33 @@ public class Minigame5 : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             control = false;
-            Invoke("NextPopUp", 0.2f);
+            NextMinigame();
         }
         if (Input.GetMouseButtonDown(1))
         {
-            control = false;
             ExitPopUp();
         }
     }
 
-    void NextPopUp()
+    void NextMinigame()
     {
-        GameManager.Instance.minigame = 2;
-        GameManager.Instance.minigames[0].SetActive(true);
-        Minigame1.Instance.nextMinigameOpenTime = 2;
+        nextMinigame.SetActive(true);
+        fakeBackground.SetActive(false);
         gameObject.SetActive(false);
     }
     void BackToGame()
     {
-        GameManager.Instance.minigame = 1;
+        GameManager.Instance.minigame = 3;
         GameManager.Instance.minigames[0].SetActive(true);
         gameObject.SetActive(false);
     }
     void ExitPopUp()
     {
+        GameObject spawnedPopup = Instantiate(popUp, new Vector3(Random.Range(-1.5f, 0.7f), 0f, -2), Quaternion.identity);
+        spawnedPopup.transform.parent = transform.GetChild(2);
+        spawnedPopup.transform.position -= new Vector3(0, 0, 0.1f * counter);
+        counter++;
+        if (counter < 10) return;
         GameManager.Instance.exitPopup = true;
         GameManager.Instance.minigame = 0;
         GameManager.Instance.minigames[0].SetActive(true);
