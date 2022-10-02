@@ -18,8 +18,8 @@ public class Minigame4 : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), transform.position.z);
-        GameManager.Instance.minigame = 1;
+        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), transform.position.z);
+        GameManager.Instance.minigame = 3;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
         fillingCounter = 0;
@@ -57,6 +57,7 @@ public class Minigame4 : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(1))
         {
+            noButton.GetComponent<SpriteRenderer>().sprite = noButtonAnimations[0];
             StopCoroutine(EnterNoButton());
         }
     }

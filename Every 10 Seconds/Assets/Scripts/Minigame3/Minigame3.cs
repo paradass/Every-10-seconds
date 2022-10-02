@@ -16,7 +16,7 @@ public class Minigame3 : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), transform.position.z);
+        transform.GetChild(1).gameObject.transform.position = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(-0.7f, 0.7f), transform.position.z);
         GameManager.Instance.minigame = 2;
         Invoke("OpenControl", 1);
         Invoke("BackToGame", 10);
