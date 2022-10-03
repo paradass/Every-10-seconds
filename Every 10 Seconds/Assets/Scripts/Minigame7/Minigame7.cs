@@ -38,12 +38,29 @@ public class Minigame7 : MonoBehaviour
     }
     public void TryAgain()
     {
-        StopCoroutine(NextScene());
-        GameManager.Instance.SpawnMinigame7();
+        StartCoroutine(NextScene2());
     }
     IEnumerator NextScene()
     {
         yield return new WaitForSeconds(nextSceneTime);
+        transform.GetChild(2).gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().sprite = screns[0];
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().sprite = screns[1];
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().sprite = screns[2];
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().sprite = screns[3];
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().sprite = screns[4];
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().sprite = screns[5];
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene(2);
+    }
+    IEnumerator NextScene2()
+    {
+        transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
         GetComponent<SpriteRenderer>().sprite = screns[0];
         yield return new WaitForSeconds(0.2f);
