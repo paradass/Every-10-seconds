@@ -99,7 +99,7 @@ public class Minigame1 : MonoBehaviour
 
     IEnumerator SecondEnd()
     {
-        yield return new WaitForSeconds(35);
+        yield return new WaitForSeconds(20);
         allObjects.SetActive(false);
         waveText.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(false);

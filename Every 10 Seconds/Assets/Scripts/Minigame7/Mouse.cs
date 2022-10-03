@@ -31,7 +31,7 @@ public class Mouse : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         gameObject.transform.position = new Vector2(this.gameObject.transform.position.x, mousePos.y);
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, -5);
         if(transform.position.y > 1.1f)
         {
             transform.position = new Vector3(transform.position.x, 1.1f, transform.position.z);
