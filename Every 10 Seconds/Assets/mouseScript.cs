@@ -11,7 +11,7 @@ public class mouseScript : MonoBehaviour
     Vector2 mousepos;
     void Start()
     {
-      
+       
     }
 
     // Update is called once per frame
