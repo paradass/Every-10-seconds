@@ -26,13 +26,13 @@ public class PlayButton : MonoBehaviour
 
     void YonDegis()
     {
-        if (transform.position.x > 1f && sagdanFirlat)
+        if (transform.position.x > 1.2f && sagdanFirlat)
         {
             sagdanFirlat = false;
             soldanFirlat = true;
             rb.velocity *= new Vector2(-1, 1);
         }
-        else if (transform.position.x < -2f && soldanFirlat)
+        else if (transform.position.x < -2.2f && soldanFirlat)
         {
             soldanFirlat = false;
             sagdanFirlat = true;

@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject spawnPoint, creditsText;
     void Start()
     {
-        InvokeRepeating("Spawn", 1, 1);
+        InvokeRepeating("Spawn", 0.4f, 0.4f);
     }
 
     void Spawn()
