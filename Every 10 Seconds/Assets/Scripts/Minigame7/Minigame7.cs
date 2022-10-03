@@ -22,7 +22,7 @@ public class Minigame7 : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnWave());
-        StartCoroutine(NextScene());
+        StartCoroutine(NextScene2());
     }
 
     IEnumerator SpawnWave()
@@ -38,7 +38,7 @@ public class Minigame7 : MonoBehaviour
     }
     public void TryAgain()
     {
-        StartCoroutine(NextScene2());
+        StartCoroutine(NextScene());
     }
     IEnumerator NextScene()
     {
