@@ -15,7 +15,7 @@ public class Minigame1 : MonoBehaviour
     [SerializeField] private GameObject[] waves;
     float waveTime;
     int waveIndex;
-    bool stopped;
+    [System.NonSerialized] public bool stopped,dead;
 
     private void Awake()
     {
@@ -82,6 +82,7 @@ public class Minigame1 : MonoBehaviour
     }
     public void End()
     {
+        dead = true;
         StartCoroutine(FirstEnd());
     }
     IEnumerator FirstEnd()
@@ -111,6 +112,7 @@ public class Minigame1 : MonoBehaviour
 
     void NextMinigameOpen()
     {
+        if (dead) return;
         GameManager.Instance.CreateFakeObjects();
         GameObject nextMinigame = GameManager.Instance.GetNextMinigameObject();
         nextMinigame.SetActive(true);
