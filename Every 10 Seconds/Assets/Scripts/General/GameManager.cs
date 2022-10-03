@@ -61,4 +61,12 @@ public class GameManager : MonoBehaviour
             fake.SetActive(false);
         }
     }
+    public void SpawnMinigame7()
+    {
+        GameObject minigame8 = Minigame7.Instance.nextMinigame;
+        Destroy(Minigame7.Instance.gameObject);
+        GameObject minigame7 = Instantiate(minigames[8], new Vector3(-0.47f, 0.11f, -2), Quaternion.identity);
+        minigame7.GetComponent<Minigame7>().nextMinigame = minigame8;
+
+    }
 }
